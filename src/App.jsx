@@ -4,6 +4,7 @@ import Questions from './components/Questions'
 import Welcome from './components/Welcome'
 import './App.css'
 import { useEffect } from 'react'
+import GameOver from './components/GameOver'
 
 
 function App() {
@@ -16,9 +17,9 @@ function App() {
   return (
     <div className="App">
       <h1> Study Quiz </h1>
-      {/* <Welcome /> */}
       {quizState.gameStage === "Start" && <Welcome />}
       {quizState.gameStage === "Playing" && <Questions />}
+      {quizState.gameStage === "End" && <GameOver />}
     </div>
   )
 }
