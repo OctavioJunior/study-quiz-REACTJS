@@ -12,12 +12,20 @@ const initialState = {
 
 const quizReducer = (state, action) => {
   console.log(state, action)
-  
-  switch(action.type){
+
+  switch (action.type) {
     case "CHANGE_STATE":
       return {
         ...state,
         gameStage: STAGES[1]
+      }
+    case "REORDER_QUESTIONS":
+      const reorderedQuestions = questions.sort(() => {
+        return Math.random() -0.5
+      }) 
+      return {
+        ...state,
+        questions: reorderedQuestions,
       }
     default:
       return state
